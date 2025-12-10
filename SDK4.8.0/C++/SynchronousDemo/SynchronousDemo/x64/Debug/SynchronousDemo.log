@@ -1,0 +1,6 @@
+﻿  ARMDstereotrackingd.lib(ToolRegi.obj) : 找到 MSIL .netmodule 或使用 /GL 编译的模块；正在使用 /LTCG 重新启动链接；将 /LTCG 添加到链接命令行以改进链接器性能
+LINK : warning LNK4075: 忽略“/INCREMENTAL”(由于“/LTCG”规范)
+    正在创建库 D:\RUITONG-system\windows\SDK_test\SDKdemo\SynchronousDemo\x64\Debug\SynchronousDemo.lib 和对象 D:\RUITONG-system\windows\SDK_test\SDKdemo\SynchronousDemo\x64\Debug\SynchronousDemo.exp
+  正在生成代码
+  已完成代码的生成
+  SynchronousDemo.vcxproj -> D:\RUITONG-system\windows\SDK_test\SDKdemo\SynchronousDemo\x64\Debug\SynchronousDemo.exe

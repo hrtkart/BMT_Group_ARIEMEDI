@@ -1,0 +1,14 @@
+优化：
+1. ReconstructPointCloud类的参数初始化从其构造移出，移至新函数initializeParameters
+2. 将ReconstructPointCloud类的原有transformed函数移至结构体PointCloudInfo内，变为其成员函数
+3. ReconstructPointCloud类的getTextureImageMat与getTextureImageUChar函数修改，原函数获取的是重建时的可见光图像，而重建使用的纹理图为其畸变校正后图像，因此进行了修正
+4. project2DImagePosition函数BUG修改，BUG问题由上一条问题产生，进行了相应的修改
+5. ARMDCombinedAPI类的trackingUpdate函数内部添加跟踪和图像数据完整性判断，在debug模式、加密软件限制等数据传输流畅度不确定情况下，保证上层拿到数据的完整性
+6. 将ARMDCombinedAPI类的getConnectionIPs、getConnectionMACs与getDeviceType函数合并成getConnectionDeviceInfo函数，其返回新的结构体DeviceInfo
+7. 使用从设备真实获取的温度与振动信息，用于系统警告提示
+
+新增：
+1. ReconstructPointCloud类添加getDepthImage和getDepthImageSize函数，用于获取重建的深度图和深度图尺寸
+2. ARMDCombinedAPI类添加getLog和saveLog函数，用于获取、保存Log日志
+3. 添加新的ARprojection类，其包含AR融合的功能
+4. 设备类型补充了新型号

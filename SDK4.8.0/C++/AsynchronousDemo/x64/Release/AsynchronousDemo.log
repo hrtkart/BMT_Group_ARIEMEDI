@@ -1,0 +1,125 @@
+﻿  AsynchronousDemo.cpp
+d:\ruitong-system\windows\sdk_test\sdkdemo\include\armdcombinedapi.h(697): warning C4251: “ARMDCombinedAPI::RCparameters”: class“std::vector<double,std::allocator<_Ty>>”需要有 dll 接口由 class“ARMDCombinedAPI”的客户端使用
+          with
+          [
+              _Ty=double
+          ]
+  d:\ruitong-system\windows\sdk_test\sdkdemo\include\armdalgorithm.h(13): note: 参见“std::vector<double,std::allocator<_Ty>>”的声明
+          with
+          [
+              _Ty=double
+          ]
+d:\ruitong-system\windows\sdk_test\sdkdemo\include\armdcombinedapi.h(699): warning C4251: “ARMDCombinedAPI::trackTools”: class“std::vector<ToolCalibrationData,std::allocator<_Ty>>”需要有 dll 接口由 class“ARMDCombinedAPI”的客户端使用
+          with
+          [
+              _Ty=ToolCalibrationData
+          ]
+  d:\ruitong-system\windows\sdk_test\sdkdemo\include\armdcombinedapi.h(344): note: 参见“std::vector<ToolCalibrationData,std::allocator<_Ty>>”的声明
+          with
+          [
+              _Ty=ToolCalibrationData
+          ]
+d:\ruitong-system\windows\sdk_test\sdkdemo\include\armdcombinedapi.h(700): warning C4251: “ARMDCombinedAPI::neighbor”: class“std::map<int,std::map<int,std::vector<int,std::allocator<_Ty>>,std::less<_Ty>,std::allocator<std::pair<const _Kty,std::vector<_Ty,std::allocator<_Ty>>>>>,std::less<_Ty>,std::allocator<std::pair<const _Kty,std::map<_Kty,std::vector<_Ty,std::allocator<_Ty>>,std::less<_Ty>,std::allocator<std::pair<const _Kty,std::vector<_Ty,std::allocator<_Ty>>>>>>>>”需要有 dll 接口由 class“ARMDCombinedAPI”的客户端使用
+          with
+          [
+              _Ty=int,
+              _Kty=int
+          ]
+  d:\ruitong-system\windows\sdk_test\sdkdemo\include\armdcombinedapi.h(700): note: 参见“std::map<int,std::map<int,std::vector<int,std::allocator<_Ty>>,std::less<_Ty>,std::allocator<std::pair<const _Kty,std::vector<_Ty,std::allocator<_Ty>>>>>,std::less<_Ty>,std::allocator<std::pair<const _Kty,std::map<_Kty,std::vector<_Ty,std::allocator<_Ty>>,std::less<_Ty>,std::allocator<std::pair<const _Kty,std::vector<_Ty,std::allocator<_Ty>>>>>>>>”的声明
+          with
+          [
+              _Ty=int,
+              _Kty=int
+          ]
+d:\ruitong-system\windows\sdk_test\sdkdemo\include\armdcombinedapi.h(701): warning C4251: “ARMDCombinedAPI::toolPlaneMarker”: class“std::vector<std::vector<ToolPlaneMarker,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>”需要有 dll 接口由 class“ARMDCombinedAPI”的客户端使用
+          with
+          [
+              _Ty=ToolPlaneMarker
+          ]
+  d:\ruitong-system\windows\sdk_test\sdkdemo\include\armdcombinedapi.h(701): note: 参见“std::vector<std::vector<ToolPlaneMarker,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>”的声明
+          with
+          [
+              _Ty=ToolPlaneMarker
+          ]
+d:\ruitong-system\windows\sdk_test\sdkdemo\include\armdcombinedapi.h(702): warning C4251: “ARMDCombinedAPI::trackingEnable”: class“std::map<std::string,bool,std::less<_Kty>,std::allocator<std::pair<const _Kty,_Ty>>>”需要有 dll 接口由 class“ARMDCombinedAPI”的客户端使用
+          with
+          [
+              _Kty=std::string,
+              _Ty=bool
+          ]
+  d:\ruitong-system\windows\sdk_test\sdkdemo\include\armdcombinedapi.h(288): note: 参见“std::map<std::string,bool,std::less<_Kty>,std::allocator<std::pair<const _Kty,_Ty>>>”的声明
+          with
+          [
+              _Kty=std::string,
+              _Ty=bool
+          ]
+d:\ruitong-system\windows\sdk_test\sdkdemo\include\armdcombinedapi.h(704): warning C4251: “ARMDCombinedAPI::allMarkersTrackingData”: class“std::vector<MarkerPosition,std::allocator<_Ty>>”需要有 dll 接口由 class“ARMDCombinedAPI”的客户端使用
+          with
+          [
+              _Ty=MarkerPosition
+          ]
+  d:\ruitong-system\windows\sdk_test\sdkdemo\include\toolregi.h(61): note: 参见“std::vector<MarkerPosition,std::allocator<_Ty>>”的声明
+          with
+          [
+              _Ty=MarkerPosition
+          ]
+d:\ruitong-system\windows\sdk_test\sdkdemo\include\armdcombinedapi.h(705): warning C4251: “ARMDCombinedAPI::unMatchedMarkers”: class“std::vector<MarkerPosition,std::allocator<_Ty>>”需要有 dll 接口由 class“ARMDCombinedAPI”的客户端使用
+          with
+          [
+              _Ty=MarkerPosition
+          ]
+  d:\ruitong-system\windows\sdk_test\sdkdemo\include\toolregi.h(61): note: 参见“std::vector<MarkerPosition,std::allocator<_Ty>>”的声明
+          with
+          [
+              _Ty=MarkerPosition
+          ]
+d:\ruitong-system\windows\sdk_test\sdkdemo\include\armdcombinedapi.h(707): warning C4251: “ARMDCombinedAPI::log”: class“std::vector<std::string,std::allocator<_Ty>>”需要有 dll 接口由 class“ARMDCombinedAPI”的客户端使用
+          with
+          [
+              _Ty=std::string
+          ]
+  d:\ruitong-system\windows\sdk_test\sdkdemo\include\udpconnection.h(46): note: 参见“std::vector<std::string,std::allocator<_Ty>>”的声明
+          with
+          [
+              _Ty=std::string
+          ]
+d:\ruitong-system\windows\sdk_test\sdkdemo\include\armdcombinedapi.h(718): warning C4251: “ARMDCombinedAPI::reconstructDataVector”: class“std::vector<std::vector<char,std::allocator<char>>,std::allocator<_Ty>>”需要有 dll 接口由 class“ARMDCombinedAPI”的客户端使用
+          with
+          [
+              _Ty=std::vector<char,std::allocator<char>>
+          ]
+  d:\ruitong-system\windows\sdk_test\sdkdemo\include\armdcombinedapi.h(483): note: 参见“std::vector<std::vector<char,std::allocator<char>>,std::allocator<_Ty>>”的声明
+          with
+          [
+              _Ty=std::vector<char,std::allocator<char>>
+          ]
+d:\ruitong-system\windows\sdk_test\sdkdemo\include\armdcombinedapi.h(727): warning C4251: “ARMDCombinedAPI::gravity”: class“std::vector<double,std::allocator<_Ty>>”需要有 dll 接口由 class“ARMDCombinedAPI”的客户端使用
+          with
+          [
+              _Ty=double
+          ]
+  d:\ruitong-system\windows\sdk_test\sdkdemo\include\armdalgorithm.h(13): note: 参见“std::vector<double,std::allocator<_Ty>>”的声明
+          with
+          [
+              _Ty=double
+          ]
+d:\ruitong-system\windows\sdk_test\sdkdemo\include\armdcombinedapi.h(730): warning C4251: “ARMDCombinedAPI::referenceToolName”: class“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”需要有 dll 接口由 class“ARMDCombinedAPI”的客户端使用
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\xstring(4373): note: 参见“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”的声明
+d:\ruitong-system\windows\sdk_test\sdkdemo\include\armdcombinedapi.h(355): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+d:\ruitong-system\windows\sdk_test\sdkdemo\include\devicescan.h(39): warning C4251: “DeviceScan::mapHostIP”: class“std::map<std::string,std::string,std::less<_Kty>,std::allocator<std::pair<const _Kty,_Ty>>>”需要有 dll 接口由 class“DeviceScan”的客户端使用
+          with
+          [
+              _Kty=std::string,
+              _Ty=std::string
+          ]
+  d:\ruitong-system\windows\sdk_test\sdkdemo\include\devicescan.h(34): note: 参见“std::map<std::string,std::string,std::less<_Kty>,std::allocator<std::pair<const _Kty,_Ty>>>”的声明
+          with
+          [
+              _Kty=std::string,
+              _Ty=std::string
+          ]
+  ARMDstereotracking.lib(ToolRegi.obj) : 找到 MSIL .netmodule 或使用 /GL 编译的模块；正在使用 /LTCG 重新启动链接；将 /LTCG 添加到链接命令行以改进链接器性能
+    正在创建库 D:\RUITONG-system\windows\SDK_test\SDKdemo\SynchronousDemo\x64\Release\AsynchronousDemo.lib 和对象 D:\RUITONG-system\windows\SDK_test\SDKdemo\SynchronousDemo\x64\Release\AsynchronousDemo.exp
+  正在生成代码
+  已完成代码的生成
+  AsynchronousDemo.vcxproj -> D:\RUITONG-system\windows\SDK_test\SDKdemo\SynchronousDemo\x64\Release\AsynchronousDemo.exe
