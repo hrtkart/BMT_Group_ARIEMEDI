@@ -1,0 +1,12 @@
+uint16 status
+float64[16] matrix
+float64 qw
+float64 qx
+float64 qy
+float64 qz
+float64 tx
+float64 ty
+float64 tz
+float64 yaw
+float64 pitch
+float64 roll
