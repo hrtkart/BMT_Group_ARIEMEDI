@@ -17,10 +17,14 @@ import os
 # Default crop region (pixel coordinates).
 # Used only when enable_crop:=true.
 DEFAULT_CROP = {
-    "y0": 70,
-    "y1": 930,
-    "x0": 521,
-    "x1": 1401,
+    # "y0": 70,
+    # "y1": 930,
+    # "x0": 521,
+    # "x1": 1401,
+    "y0": 91,
+    "y1": 987,
+    "x0": 401,
+    "x1": 1517,
 }
 
 def get_device_name(device_path):

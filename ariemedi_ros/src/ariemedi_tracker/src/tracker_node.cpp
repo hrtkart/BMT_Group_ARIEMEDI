@@ -19,6 +19,7 @@
 #include <chrono>
 #include <memory>
 #include <cmath>
+#include <cctype>
 
 using namespace std::chrono_literals;
 
@@ -31,7 +32,11 @@ public:
     {
         this->declare_parameter<std::string>("hostname", "");
         this->declare_parameter<bool>("enable_imaging", false);
+        this->declare_parameter<std::string>("base_frame_id", "tracker_base");
+        this->declare_parameter<std::string>("default_tool_frame_id", "toolcali0");
         enable_imaging_ = this->get_parameter("enable_imaging").as_bool();
+        base_frame_id_ = this->get_parameter("base_frame_id").as_string();
+        default_tool_frame_id_ = this->get_parameter("default_tool_frame_id").as_string();
         
         tf_broadcaster_ = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
         
@@ -48,6 +53,30 @@ public:
     }
 
 private:
+    static std::string sanitizeFrameId(const std::string &raw_name, const std::string &fallback)
+    {
+        const std::string &source = raw_name.empty() ? fallback : raw_name;
+        std::string clean;
+        clean.reserve(source.size());
+
+        for (const unsigned char c : source) {
+            if (std::isalnum(c) || c == '_' || c == '/') {
+                clean.push_back(static_cast<char>(c));
+            } else {
+                clean.push_back('_');
+            }
+        }
+
+        while (!clean.empty() && clean.front() == '/') {
+            clean.erase(clean.begin());
+        }
+
+        if (clean.empty()) {
+            return fallback;
+        }
+        return clean;
+    }
+
     void initDevice()
     {
         std::string hostname = this->get_parameter("hostname").as_string();
@@ -265,7 +294,7 @@ private:
                     auto ros_msg = ariemedi_tracker::msg::ToolTrackingData();
 
                     ros_msg.header.stamp = this->get_clock()->now();
-                    ros_msg.header.frame_id = "tracker_base";
+                    ros_msg.header.frame_id = base_frame_id_;
 
                     ros_msg.name = data.name;
                     ros_msg.timespec = data.timespec;
@@ -333,17 +362,29 @@ private:
                     // Broadcast TF as well.
                     geometry_msgs::msg::TransformStamped t;
                     t.header = ros_msg.header;
-                    t.child_frame_id = data.name.empty() ? "toolcali0" : data.name;
+                    t.child_frame_id = sanitizeFrameId(data.name, default_tool_frame_id_);
 
                     // If ARMD SDK returns mm, divide by 1000 for ROS meters.
                     t.transform.translation.x = data.transform.tx / 1000.0;
                     t.transform.translation.y = data.transform.ty / 1000.0;
                     t.transform.translation.z = data.transform.tz / 1000.0;
 
-                    t.transform.rotation.w = data.transform.qw;
-                    t.transform.rotation.x = data.transform.qx;
-                    t.transform.rotation.y = data.transform.qy;
-                    t.transform.rotation.z = data.transform.qz;
+                    const double q_norm = std::sqrt(
+                        data.transform.qw * data.transform.qw +
+                        data.transform.qx * data.transform.qx +
+                        data.transform.qy * data.transform.qy +
+                        data.transform.qz * data.transform.qz);
+                    if (q_norm > 1e-9) {
+                        t.transform.rotation.w = data.transform.qw / q_norm;
+                        t.transform.rotation.x = data.transform.qx / q_norm;
+                        t.transform.rotation.y = data.transform.qy / q_norm;
+                        t.transform.rotation.z = data.transform.qz / q_norm;
+                    } else {
+                        t.transform.rotation.w = 1.0;
+                        t.transform.rotation.x = 0.0;
+                        t.transform.rotation.y = 0.0;
+                        t.transform.rotation.z = 0.0;
+                    }
 
                     tf_broadcaster_->sendTransform(t);
                 }
@@ -362,6 +403,8 @@ private:
     rclcpp::TimerBase::SharedPtr timer_;
     std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
     rclcpp::Publisher<ariemedi_tracker::msg::ToolTrackingData>::SharedPtr armd_pub_;
+    std::string base_frame_id_;
+    std::string default_tool_frame_id_;
     
     // Frame timing and counting
     uint64_t frame_count_;
