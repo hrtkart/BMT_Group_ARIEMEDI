@@ -1,0 +1,12 @@
+std_msgs/Header header
+string name
+string timespec
+ariemedi_tracker/Transformation transform
+int32 match_status
+int32 matched_plane
+int32 matched_markers_num
+ariemedi_tracker/MarkerPlane plane
+ariemedi_tracker/MarkerPosition[] points
+float64[3] dir
+float64 error
+float64 fps

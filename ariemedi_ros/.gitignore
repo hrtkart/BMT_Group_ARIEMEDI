@@ -1,0 +1,30 @@
+# ROS 2 workspace build artifacts
+build/
+install/
+log/
+
+# Colcon / CMake generated files
+.colcon/
+.colcon_install_layout
+compile_commands.json
+CTestTestfile.cmake
+cmake_install.cmake
+CMakeCache.txt
+CMakeFiles/
+Testing/
+
+# Python cache
+**/__pycache__/
+*.py[cod]
+
+# Editor / OS noise
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Runtime dumps / temp files
+*.log
+*.tmp
+*.swp
+*~
