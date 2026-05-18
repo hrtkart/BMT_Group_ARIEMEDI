@@ -19,6 +19,36 @@ install(PROGRAMS
   RENAME eef_marker_relative_plot
 )
 
+install(PROGRAMS
+  scripts/dual_ur5e_rtde_node.py
+  DESTINATION lib/${PROJECT_NAME}
+  RENAME dual_ur5e_rtde_node
+)
+
+install(PROGRAMS
+  scripts/dual_eef_marker_relative_plot.py
+  DESTINATION lib/${PROJECT_NAME}
+  RENAME dual_eef_marker_relative_plot
+)
+
+install(PROGRAMS
+  scripts/dual_eef_marker_data_recorder.py
+  DESTINATION lib/${PROJECT_NAME}
+  RENAME dual_eef_marker_data_recorder
+)
+
+install(PROGRAMS
+  scripts/dual_eef_marker_time_aligned_plot_from_numpy.py
+  DESTINATION lib/${PROJECT_NAME}
+  RENAME dual_eef_marker_time_aligned_plot_from_numpy
+)
+
+install(PROGRAMS
+  scripts/test_dual_base_transform.py
+  DESTINATION lib/${PROJECT_NAME}
+  RENAME test_dual_base_transform
+)
+
 install(DIRECTORY launch
   DESTINATION share/${PROJECT_NAME}
 )

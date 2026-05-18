@@ -7,6 +7,7 @@ endif()
 
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(ament_index_cpp REQUIRED)
 find_package(tf2 REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(geometry_msgs REQUIRED)
@@ -48,13 +49,43 @@ target_link_libraries(tracker_node
 
 ament_target_dependencies(tracker_node
   "rclcpp"
+  "ament_index_cpp"
   "tf2"
   "tf2_ros"
   "geometry_msgs"
   "std_msgs"
 )
 
-install(TARGETS tracker_node
+add_executable(multi_tracker_node src/multi_tracker_node.cpp)
+target_include_directories(multi_tracker_node PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+target_compile_features(multi_tracker_node PUBLIC c_std_99 cxx_std_17)
+rosidl_target_interfaces(multi_tracker_node ${PROJECT_NAME} "rosidl_typesupport_cpp")
+
+target_link_libraries(multi_tracker_node
+  ${ARMD_TRACKING_LIB}
+  ${ARMD_RECONSTRUCTION_LIB}
+)
+
+ament_target_dependencies(multi_tracker_node
+  "rclcpp"
+)
+
+add_executable(marker_pair_broadcaster_node src/marker_pair_broadcaster_node.cpp)
+target_include_directories(marker_pair_broadcaster_node PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+target_compile_features(marker_pair_broadcaster_node PUBLIC c_std_99 cxx_std_17)
+rosidl_target_interfaces(marker_pair_broadcaster_node ${PROJECT_NAME} "rosidl_typesupport_cpp")
+
+ament_target_dependencies(marker_pair_broadcaster_node
+  "rclcpp"
+  "tf2_ros"
+  "geometry_msgs"
+)
+
+install(TARGETS tracker_node multi_tracker_node marker_pair_broadcaster_node
   DESTINATION lib/${PROJECT_NAME})
 
 install(DIRECTORY armd_sdk/tool/
