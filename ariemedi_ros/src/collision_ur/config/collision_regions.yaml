@@ -1,0 +1,40 @@
+global_frame: left_base
+clearance: 0.03
+left:
+  bodies:
+    wrist_2:
+      frame: L_wrist_2_link
+      radius: 0.06
+      segment_start: [0.0, -0.055, 0.0]
+      segment_end: [0.0, 0.100, 0.0]
+    wrist_3:
+      frame: L_wrist_3_link
+      radius: 0.06
+      segment_start: [0.0, 0.0, -0.050]
+      segment_end: [0.0, 0.0, 0.0]
+    tool:
+      frame: tcp
+      radius: 0.05
+      segment_start: [0.0, 0.0, 0.0]
+      segment_end: [0.0, 0.0, 0.20]
+  workspace_min: [-0.85, -0.85, -0.20]
+  workspace_max: [0.85, 0.85, 1.10]
+right:
+  bodies:
+    wrist_2:
+      frame: R_wrist_2_link
+      radius: 0.06
+      segment_start: [0.0, -0.055, 0.0]
+      segment_end: [0.0, 0.100, 0.0]
+    wrist_3:
+      frame: R_wrist_3_link
+      radius: 0.06
+      segment_start: [0.0, 0.0, -0.050]
+      segment_end: [0.0, 0.0, 0.0]
+    tool:
+      frame: tcp
+      radius: 0.05
+      segment_start: [0.0, 0.0, 0.0]
+      segment_end: [0.0, 0.0, 0.20]
+  workspace_min: [-0.85, -0.85, -0.20]
+  workspace_max: [0.85, 0.85, 1.10]
